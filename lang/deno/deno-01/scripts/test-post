@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+curl --verbose --data-ascii '
+  <html>
+    <body>
+      <b>test</b>
+      <script>alert(1);</script>
+      <button onclick="alert(1)">test</button>
+    </body>
+  </html>' \
+  -H 'Content-Type: text/html; charset=utf-8' \
+  -H 'Accept: application/json' \
+  -X POST http://localhost/

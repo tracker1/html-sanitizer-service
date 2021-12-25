@@ -1,0 +1,18 @@
+{
+  "deno.enable": true,
+  "deno.lint": true,
+  "deno.unstable": true,
+
+  "files.associations": {
+    ".env.*": "dotenv"
+  },
+
+  "[javascript]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+
+  "[typescript]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "files.eol": "\n"
+}

@@ -1,0 +1,16 @@
+# copied to /root/.config/starship.toml
+format = "$env_var$username$hostname\n$directory$all"
+
+[username]
+format = "[$user](yellow)"
+
+[hostname]
+format = "[@](fg:8)[$hostname](green)"
+ssh_only = true
+
+[directory]
+truncation_length = 5
+
+[env_var.APP_NAME]
+variable = "APP_NAME"
+format = "[\\(](fg:8)[$env_value](bold green)[\\)](fg:8) "
