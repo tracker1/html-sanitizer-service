@@ -1,17 +1,19 @@
-import { Application } from "./types.ts";
+import { Application } from "./deps.ts";
+import { log } from "./log.ts";
+import { handleRequest } from "./handleRequest.ts";
 
-import { APP_HOST, APP_PORT } from "./config.ts";
-import router from "./routes.ts";
-import _404 from "./controllers/404.ts";
-import errorHandler from "./controllers/errorHandler.ts";
+const APP_HOST = Deno.env.get("APP_HOST") || "0.0.0.0";
+const APP_PORT = Deno.env.get("APP_PORT") || 80;
 
 const app = new Application();
 
-app.use(errorHandler);
-app.use(router.routes());
-app.use(router.allowedMethods());
-app.use(_404);
+app.use(handleRequest);
 
-console.log(`Listening on port:${APP_PORT}...`);
+log.info(`Listening`, {
+  code: 1000,
+  interface: `http://${APP_HOST}:${APP_PORT}/`,
+  host: APP_HOST,
+  port: APP_PORT,
+});
 
 await app.listen(`${APP_HOST}:${APP_PORT}`);

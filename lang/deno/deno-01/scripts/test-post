@@ -2,12 +2,20 @@
 
 curl --verbose --data-ascii '
   <html>
+    <head>
+      Stuff in head
+    </head>
     <body>
-      <b>test</b>
-      <script>alert(1);</script>
+      <script>alert(123);</script>
+      <h1>h1</h1>
+      <p style = "color:red;background-color:eval('white');">
+        paragraph style="test fail" <  >
+      </p>
+      <script>alert('FAIL!!!')</script>
       <button onclick="alert(1)">test</button>
     </body>
-  </html>' \
+  </html>
+  ' \
   -H 'Content-Type: text/html; charset=utf-8' \
   -H 'Accept: application/json' \
   -X POST http://localhost/
