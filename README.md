@@ -16,7 +16,7 @@ JavaScript solution using Node.js with Express.
 
 ### CSharp-01
 
-### Deno
+### Rust-01
 
 ## TODO
 
